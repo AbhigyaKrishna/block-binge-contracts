@@ -1,0 +1,6 @@
+.env
+out
+.vscode
+.idea
+deploy.sh
+cache
