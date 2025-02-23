@@ -102,6 +102,9 @@ flowchart TB
     class PF1,PF2,PF3 payment
 ```
 
+## Video Explaination
+<video src="https://www.youtube.com/watch?v=z-3BeEYIO8I" width="640" height="360" controls></video>
+
 ## 🛠️ Tech Stack
 
 - **Smart Contracts**: Solidity ^0.8.19
