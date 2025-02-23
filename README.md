@@ -33,6 +33,75 @@ D -->|Pay Creator| E[Creator Wallet]
 D -->|Platform Fee| F[Platform Wallet]
 ```
 
+### Contracts Flow
+```mermaid
+flowchart TB
+    subgraph Sepolia["Sepolia Network"]
+        direction TB
+        SP["StreamingPlatform.sol <br> (Origin Contract)"]
+        PC["PaymentCallback.sol <br> (Destination Contract)"]
+        
+        SP --> F1["Add Content"]
+        SP --> F2["Verify Paymnet"]
+        SP --> F3["Bill Session"]
+        F3 --> E1["Add Content"]
+        F3 --> E2["Bill Content"]
+
+        subgraph "Event Handlers"
+            EH1["Add Content <br> Stores movie metadata <br> on blockchain"]
+            EH2["Bill Content <br> Calculates total amount <br> based on watch duration"]
+        end
+
+        subgraph "Payment Functions"
+        direction TB
+        PF1["sendToWallet() <br> Keeps platform cut"]
+        PF2["sendPayment() <br> Pays content owner"]
+        PF3["createPendingPayment() <br> Sends total amount to user"]
+        
+    end
+    
+    end
+
+    subgraph Kopli["Kopli Network"]
+        direction TB
+        RP["StreamingReactivePlatform.sol <br> (Reactive Contract)"]
+        
+        %% subgraph "Event Handlers"
+        %%     EH1["Add Content <br> Stores movie metadata <br> on blockchain"]
+        %%     EH2["Bill Content <br> Calculates total amount <br> based on watch duration"]
+        %% end
+    end
+
+    %% subgraph "Payment Functions"
+    %%     direction TB
+    %%     PF1["sendToWallet() <br> Keeps platform cut"]
+    %%     PF2["sendPayment() <br> Pays content owner"]
+    %%     PF3["createPendingPayment() <br> Sends total amount to user"]
+    %% end
+
+    RP --> EH1
+    RP --> EH2
+    E1 --> EH1
+    E2 --> EH2
+    EH2 -->|"Payment Callbacks"| PF1
+    EH2 -->|"Payment Callbacks"| PF2
+    EH2 -->|"Payment Callbacks"| PF3
+    
+    PF1 --> PC
+    PF2 --> PC
+    PF3 --> PC
+
+    classDef contract fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    classDef event fill:#ff9,stroke:#333,stroke-width:2px,color:black
+    classDef handler fill:#9f9,stroke:#333,stroke-width:2px,color:black
+    classDef payment fill:#99f,stroke:#333,stroke-width:2px,color:black
+    
+    class SP,PC,RP contract
+    class F1,F2,F3,E1,E2 event
+    class EH1,EH2 handler
+    class PF1,PF2,PF3 payment
+```
+
 ## 🛠️ Tech Stack
 
 - **Smart Contracts**: Solidity ^0.8.19
