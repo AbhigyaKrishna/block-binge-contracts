@@ -103,7 +103,7 @@ flowchart TB
 ```
 
 ## Video Explaination
-<video src="https://www.youtube.com/watch?v=z-3BeEYIO8I" width="640" height="360" controls></video>
+[![Video](assets/image.png)](https://www.youtube.com/watch?v=z-3BeEYIO8I)
 
 ## 🛠️ Tech Stack
 
