@@ -88,6 +88,13 @@ contract StreamingReactivePlatform is IReactive, AbstractReactive {
                 log.chain_id,
                 _callback,
                 GAS_LIMIT,
+                abi.encodeWithSignature("sendToWallet(uint256)", platformFeeAmount)
+            );
+
+            emit Callback(
+                log.chain_id,
+                _callback,
+                GAS_LIMIT,
                 abi.encodeWithSignature("createPendingPayment(address,uint256)", user, amount)
             );
         }

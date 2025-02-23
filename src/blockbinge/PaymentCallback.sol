@@ -6,10 +6,18 @@ import './IStreamingPlatform.sol';
 
 contract PaymentCallback is AbstractCallback {
 
+    // Platform wallet for collecting fees
+    address public platformWallet;
+
     IStreamingPlatform public streamingPlatform;
 
-    constructor(address _streamingPlatform) AbstractCallback(address(0)) {
+    constructor(address _streamingPlatform, address _platformWallet) AbstractCallback(address(0)) {
         streamingPlatform = IStreamingPlatform(_streamingPlatform);
+        platformWallet = _platformWallet;
+    }
+
+    function sendToWallet(uint256 amount) private {
+        require(payable(platformWallet).send(amount), "Transfer failed");
     }
 
     function sendPayment(address payable user, uint256 amount) private {

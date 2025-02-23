@@ -12,19 +12,12 @@ contract StreamingPlatform is IStreamingPlatform {
     // Next content ID
     uint256 private nextContentId;
     
-    // Platform wallet for collecting fees
-    address public platformWallet;
-    
     event AddContent(uint256 id, address creator, uint256 pricePerSecond, uint256 flatPrice, string uri);
     // event ContentAdded(uint256 indexed contentId, address indexed creator, uint256 pricePerSecond, uint256 flatPrice);
     // event StreamStarted(uint256 indexed contentId, address indexed user, uint256 startTime);
     // event StreamPaused(uint256 contentId, address indexed creator, address indexed user, uint256 endTime, uint256 indexed amountPaid);
     // event VerifyPayment(address indexed user);
     event BillContent(address indexed user, uint256 contentId, uint256 indexed time);
-    
-    constructor(address _platformWallet) {
-        platformWallet = _platformWallet;
-    }
     
     function addContent(
         uint256 _pricePerSecond,
