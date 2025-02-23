@@ -7,9 +7,9 @@
 > *Watch what you want, pay for what you watch. A revolutionary Web3 streaming platform powered by Reactive Smart Contracts.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Solidity](https://img.shields.io/badge/Solidity-%5E0.8.19-363636.svg)](https://soliditylang.org/)
-[![Reactive Smart Contracts](https://img.shields.io/badge/Reactive-Smart%20Contracts-blue.svg)](https://dev.reactive.network)
-[![Website](https://img.shields.io/badge/Website-Block%20Binge-blue)](https://blockbinge.vercel.app/)
+[![React](https://img.shields.io/badge/React-18.2.0-61DAFB.svg)](https://reactjs.org/)
+[![IPFS](https://img.shields.io/badge/IPFS-Storage-65C2CB.svg)](https://ipfs.io/)
+[![Website](https://img.shields.io/badge/Website-Block%20Binge-4E46E5)](https://blockbinge.vercel.app/)
 
 [View Demo](https://blockbinge.vercel.app/) | [Smart Contracts](https://github.com/AbhigyaKrishna/block-binge-contracts) | [Frontend Code](https://github.com/vaibhavkothari33/BlockBinge)
 
